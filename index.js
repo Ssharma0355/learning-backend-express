@@ -11,7 +11,7 @@ app.get("/about", (req, res) => {
   return res.send("hello from about page");
 });
 app.get("/contact", (req, res) => {
-  return res.send("hello from contact page");
+  return res.send("hello from contact page" + " Hi " + req.query.name + "your age is " + req.query.age);
 });
 
 app.listen(3000,()=>{
