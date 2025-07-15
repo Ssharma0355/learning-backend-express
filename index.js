@@ -12,7 +12,7 @@ const PORT = 8000;
 app.get("/api/users", (req, res) => {
     return res.json(users);
 })
-// for web browser we are sending HTML DOC SSR
+// for web browser we are sending HTML DOC SSR hybrid server
 app.get("/users",(req, res)=>{
     const html = `
     <ul>
@@ -20,6 +20,14 @@ app.get("/users",(req, res)=>{
     </ul>
     `
     return res.send(html)
+})
+// Dynamic path for getting a specific user from DB
+
+app.get("/api/users/:id",(req,res)=>{
+    const id = Number(req.params.id);
+    const user = users.find((user) => user.id === id);
+    return res.send(user);
+    
 })
 
 app.listen(PORT, () => {
