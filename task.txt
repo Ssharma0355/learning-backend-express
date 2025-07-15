@@ -9,3 +9,6 @@ POST /users -> Create a new user
 PATCH /users/1 -> Edit the user with id 1
 
 DELETE /users/1 -> Delete the user with id 1
+
+
+dummy data from -> https://www.mockaroo.com/
