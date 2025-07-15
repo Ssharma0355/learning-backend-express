@@ -26,8 +26,8 @@ app.get("/users",(req, res)=>{
 app.get("/api/users/:id",(req,res)=>{
     const id = Number(req.params.id);
     const user = users.find((user) => user.id === id);
-    return res.send(user);
-    
+    return res.json(user);
+
 })
 
 app.listen(PORT, () => {
