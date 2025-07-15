@@ -6,6 +6,7 @@ const cors = require("cors")
 const app = express();
 app.use(cors());
 
+app.use(express.urlencoded({extended: false}))
 const PORT = 8000;
 
 // Routes for mobile application we sending json
@@ -21,6 +22,12 @@ app.get("/users",(req, res)=>{
     `
     return res.send(html)
 })
+
+app.post("/api/users",(req, res)=>{
+        const body = req.body;
+        console.log("Body: ", body)
+      return res.json({ status: "pending" });
+})
 // Dynamic path for getting a specific user from DB
   app
     .route("/api/users/:id")
@@ -30,6 +37,8 @@ app.get("/users",(req, res)=>{
       return res.json(user);
     })
     .post((req, res) => {
+        const body = req.body;
+        console.log("Body: ", body)
       return res.json({ status: "pending" });
     })
     .put((req, res) => {
