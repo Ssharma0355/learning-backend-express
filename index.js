@@ -1,6 +1,7 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json")
 const cors = require("cors")
+const fs = require("fs");
 
 
 const app = express();
@@ -26,7 +27,12 @@ app.get("/users",(req, res)=>{
 app.post("/api/users",(req, res)=>{
         const body = req.body;
         console.log("Body: ", body)
-      return res.json({ status: "pending" });
+        users.push({...body, id: users.length+1})
+        fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
+      return res.json({ status: "succsess" });
+
+        })
+    //   return res.json({ status: "pending" });
 })
 // Dynamic path for getting a specific user from DB
   app
