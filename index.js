@@ -3,6 +3,9 @@ const express = require("express");
 
 const app = express();
 
+const PORT = 8000;
+
+// Routes
 app.get("/",(req, res)=>{
     return res.send("hello from home page");
 })
@@ -14,6 +17,6 @@ app.get("/contact", (req, res) => {
   return res.send("hello from contact page" + " Hi " + req.query.name + "your age is " + req.query.age);
 });
 
-app.listen(3000,()=>{
-    console.log("Server started from 3000")
-})
+app.listen(PORT, () => {
+  console.log(`Server started from ${PORT} `);
+});
