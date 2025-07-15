@@ -29,7 +29,7 @@ app.post("/api/users",(req, res)=>{
         console.log("Body: ", body)
         users.push({...body, id: users.length+1})
         fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err,data)=>{
-      return res.json({ status: "succsess" });
+      return res.json({ status: "succsess", id: users.length + 1 });
 
         })
     //   return res.json({ status: "pending" });
